@@ -7,11 +7,10 @@ const cors = require('cors');
 const app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-const port = process.env.PORT ||8080;
+const port = process.env.PORT || 8080;
 server.listen(port);
 
 const connectDb = require('./utils/connectDb');     
-var db =  'mongodb+srv://shubhamchepe:132133@Shubham@cluster0-3zzun.mongodb.net/test?retryWrites=true&w=majority';
 connectDb();
 
 
