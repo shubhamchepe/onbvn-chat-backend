@@ -79,11 +79,12 @@ io.on('connection', (socket) => {
                            console.log('Error Occured Saving Chat')
                     } else{
                            console.log('Chat Saved')
+                           console.log(data);
+                           data.type = 'in'
+                           io.to(socketId).emit('new_message', data)
                     }
              })
-             console.log(data);
-             data.type = 'in'
-             io.to(socketId).emit('new_message', data)
+            
        })    
        })
 })
