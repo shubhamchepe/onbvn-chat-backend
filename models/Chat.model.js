@@ -41,7 +41,7 @@ const ChatSchema = new Schema({
     underscoreID:{
         type: mongoose.Types.ObjectId
     }
-  });
+  },{ autoIndex: false });
   
 
 module.exports = mongoose.model('Chat',ChatSchema);
