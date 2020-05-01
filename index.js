@@ -73,15 +73,14 @@ io.on('connection', (socket) => {
              var socketId = users[data.ToUser];
              var socketId1 = users[data.FromUser];
              io.to(socketId1).emit('new_message', data)
+             data.type = 'in'
+             io.to(socketId).emit('new_message', data)
              var chat = new Chat(data)
              chat.save((err,data) => {
                     if(err){
                            console.log('Error Occured Saving Chat')
                     } else{
                            console.log('Chat Saved')
-                           console.log(data);
-                           data.type = 'in'
-                           io.to(socketId).emit('new_message', data)
                     }
              })
             
