@@ -72,7 +72,6 @@ io.on('connection', (socket) => {
        socket.on('send_message', (data) => {
              var socketId = users[data.ToUser];
              var socketId1 = users[data.FromUser];
-             console.log(io.sockets.adapter.rooms[socketId])
              io.to(socketId1).emit('new_message', data)
              data.type = 'in'
              io.to(socketId).emit('new_message', data)
